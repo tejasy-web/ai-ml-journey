@@ -18,3 +18,146 @@ Think of it like:
 └──────────────┘               └──────────────┘                └──────────────┘
        ↑                                                              │
        └──────────────── edit file again ─────────────────────────────┘
+
+
+
+** Convention of commit message **
+This is the convention used in industry. Follow it from DAY 1:
+
+Format: <type>: <short description>
+
+Types:
+├── init:     initial setup
+├── feat:     new feature or new topic code
+├── fix:      bug fix
+├── docs:     documentation changes
+├── refactor: code restructuring
+├── data:     dataset related
+├── model:    model training/evaluation
+├── exp:      experiment
+└── chore:    maintenance tasks
+
+Examples:
+├── "init: project structure and setup"
+├── "feat: implement linear regression from scratch"
+├── "fix: handle NaN values in preprocessing"
+├── "docs: add notes for backpropagation"
+├── "model: train CNN on CIFAR-10, acc=87%"
+├── "exp: test learning rate 0.001 vs 0.01"
+
+
+
+Branches: 
+WHY branches matter:
+
+main branch    = stable, working code (NEVER break this)
+feature branch = experimental, in-progress work
+
+Real scenario:
+├── You're working on Module 3 (ML)
+├── You want to try a crazy experiment
+├── DON'T mess up your working code
+├── Create a branch → experiment → if it works, merge back
+
+
+
+Before merge:
+main:           A --- B --- C
+                             \
+experiment-01:                D --- E
+
+After merge:
+main:           A --- B --- C --- D --- E --- M (merge commit)
+
+
+
+Even when working alone, practice this:
+
+1. Create a branch for each module/topic
+2. Work on the branch
+3. Push branch to GitHub
+4. Go to GitHub → create Pull Request
+5. Review your own changes
+6. Merge via GitHub
+7. Pull changes locally
+
+This is EXACTLY how you'll work at any company.
+
+
+┌─────────────────────────────────────────────────────────┐
+│                    GIT CHEAT SHEET                       │
+├─────────────────────────────────────────────────────────┤
+│ SETUP                                                    │
+│   git init                    Initialize repo            │
+│   git clone <url>             Clone remote repo          │
+│                                                          │
+│ DAILY WORKFLOW                                           │
+│   git status                  Check changes              │
+│   git add .                   Stage all changes          │
+│   git add <file>              Stage specific file        │
+│   git commit -m "msg"         Commit staged changes      │
+│   git push origin <branch>    Push to remote             │
+│   git pull origin <branch>    Pull from remote           │
+│                                                          │
+│ BRANCHING                                                │
+│   git branch                  List branches              │
+│   git branch <name>           Create branch              │
+│   git checkout <name>         Switch branch              │
+│   git checkout -b <name>      Create + switch            │
+│   git merge <name>            Merge branch into current  │
+│   git branch -d <name>        Delete merged branch       │
+│                                                          │
+│ INSPECTION                                               │
+│   git log --oneline           Compact history            │
+│   git diff                    See unstaged changes       │
+│   git diff --staged           See staged changes         │
+│   git show                    Last commit details        │
+│                                                          │
+│ UNDO                                                     │
+│   git checkout -- <file>      Discard file changes       │
+│   git reset HEAD <file>       Unstage a file             │
+│   git reset --soft HEAD~1     Undo last commit (keep     │
+│                               changes)                   │
+│   git stash                   Temporarily save changes   │
+│   git stash pop               Restore stashed changes    │
+│                                                          │
+│ COMMIT MESSAGE FORMAT                                    │
+│   <type>: <description>                                  │
+│   init / feat / fix / docs / model / exp / refactor      │
+└─────────────────────────────────────────────────────────┘
+
+
+
+Things that should NEVER go to GitHub:
+├── datasets/ (too large — use Google Drive, Kaggle, or DVC)
+├── model weights/ (*.pt, *.h5 — can be 100MB-10GB)
+├── virtual env/ (venv/ — everyone creates their own)
+├── __pycache__/ (auto-generated Python bytecode)
+├── .ipynb_checkpoints/ (Jupyter auto-save files)
+├── API keys & secrets (NEVER push passwords/tokens)
+└── logs & temporary files
+
+Things that SHOULD go to GitHub:
+├── Source code (.py files)
+├── Notebooks (.ipynb — without huge outputs)
+├── README and documentation
+├── requirements.txt
+├── Config files
+├── Small sample data (for testing)
+└── Scripts & utilities
+
+
+    □ Understand working directory → staging → commit → push flow
+□ Created git_practice.py and made multiple commits
+□ Used git log --oneline to view history
+□ Used git diff to see changes before committing
+□ Created a branch (experiment-01)
+□ Made commits on the branch
+□ Switched between main and branch (saw files appear/disappear)
+□ Merged branch back to main
+□ Deleted merged branch
+□ Pushed a branch to GitHub
+□ Created a Pull Request on GitHub
+□ Merged PR and pulled changes locally
+□ Saved the Git Cheat Sheet somewhere accessible
+□ Push today's work: git commit -m "module-00: day 2 git deep dive complete"
