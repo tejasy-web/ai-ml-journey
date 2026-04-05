@@ -1,0 +1,20 @@
+-- Git & Github Real world importance: Let's say you build a model, trained it and it worked fine.
+later you go on and change some of its hyperparameters --> Model breaks.
+To always be answerable and revert back we should have git commits so as to explain what broke the pipeline and how could we get back to the normal state.
+
+If multiple people work on the same code base.. in order to avoid chaos and overwritten files, we shall use Git and Github.
+
+Git Mental Model:
+
+Working Directory → Staging Area → Local Repo → Remote (GitHub)
+    (your files)     (git add)    (git commit)   (git push)
+    
+Think of it like:
+    Writing exam  →  Review sheet → Submit to teacher → Publish results
+
+┌──────────────┐    git add    ┌──────────────┐   git commit   ┌──────────────┐
+│  MODIFIED    │ ───────────→  │   STAGED     │ ────────────→  │  COMMITTED   │
+│  (changed)   │               │  (ready)     │                │  (saved)     │
+└──────────────┘               └──────────────┘                └──────────────┘
+       ↑                                                              │
+       └──────────────── edit file again ─────────────────────────────┘
