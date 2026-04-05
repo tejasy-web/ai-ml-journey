@@ -5,3 +5,9 @@ def greet(name):
 
 print(greet("Tejas"))
 
+def add(a, b):
+    """Simple addition, will be replaced with neural nets soon 😉"""
+    return a + b;
+
+print(add(5, 3))
+
